@@ -1,0 +1,142 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To setup global username and email
+git config --global user.name "Sougata Roy"
+git config --global user.email "sr@email.com"
+git config --list
+
+#To add a alias for a command
+git config --global alias.<shortcut_command> '<actual_command>'
+
+# To know your username or email
+git config user.name
+git config user.email
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To make a folder as a git repository
+git init
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To add all the files at a go inside the git repository to staging state before commit
+git add -A
+# OR
+git add --all
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To untrack each file
+git rm --cached <file>...
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To commit into local repository
+git commit -m '<commit_message>'
+
+# To add a direct commit only to the tracked files without moving to git staging, any untracked files won't be commited
+git commit -a -m '<commit_message>'
+
+# To merge changes to last commit
+git add --all (add the modifed files to be added to last commit)
+git commit --amend
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To check all the commits made to the repository
+git log
+
+# To check all the commits made to the repository with changes in each commit (file addition/deletion)
+git log -p
+
+# To check last 3 commits made to the repository with changes in each commit (file addition/deletion)
+git log -p -3
+
+# To check all the commits made to the repository with changes in each commit (file addition/deletion) concise/conpact way
+git log --stat
+
+# To check all commits in a table form row wise(oneline)
+git log --pretty=oneline
+
+# To check all commits with only commit id and author
+git log --pretty=short
+
+# To check all commits more info
+git log --pretty=full
+
+# to check all commits in a specific format -> git scm git log format website for more info
+# %h-> abbreviated hash commit
+# %an-> author name
+git log --pretty=format:"%h -- %an"
+
+# To check commit with last n number of days/months/years
+git log --since=n.days (git log --since=2.days)
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To discard changes in working directory
+git restore <file>
+
+# To unstage files
+git restore --staged <file>
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To get difference between WORKING directory and STAGING area we use
+git diff
+
+# To get difference between CURRENT STAGING area with PREVIOUS COMMIT
+git diff --staged
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To unmodify/revert changes to an UNSTAGED file as it is as the previous/last commit
+git checkout -- <file_name>
+
+# OR to use the above command for all the files
+git checkout -f
+
+# To create a new branch and switch to it
+git checkout -b <branch_name>
+
+# To switch to other branch
+git checkout <branch_name>
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To add a remote repository into your local, origin is the name of remote repository
+git remote add origin <git_repository_url>
+
+# To know the fetch and push remote repository URLs
+git remote -v
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To push files to a remote repository and its branch
+git push -u <repo_name> <branch_name>
+git push -u origin master
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To show all branches in a repository
+git branch
+
+# To show all branches with commit hash, commit message
+git branch -v
+
+# To show all the already merged branches
+git branch --merged
+
+# To show all the not already merged branches
+git branch --not-merged
+
+# To delete a branch, would give error is branch is not merged and would ask to user -D
+git branch -d <branch_name>	-> gives error if branch gets deleted even if not merged	
+git branch -D <branch_name>	-> no error if branch gets deleted even if not merged
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+# To merge another commited branch with the working branch
+git merge <other_branch_name>
+
+----------------------------------------------------------------------------------------------------------------------------------------
